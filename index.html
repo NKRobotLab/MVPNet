@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="LAMPS">
-  <meta name="keywords" content="Learning from Demonstration, Task and Motion Planning, Manipulation Planning">
+        content="MVPNet">
+  <meta name="keywords" content="Active Perception, Optimal Viewpoint Prediction, Multimodal Perception, Robotic Grasping">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>LAMPS</title>
+  <title>MVPNet</title>
 
 
   <script>
@@ -21,7 +21,7 @@
     gtag('config', 'G-PYVRSFMDRL');
   </script>
 
-  <link rel="icon" type="image/x-icon" href="./static/images/logo1.ico">
+  <link rel="icon" type="image/x-icon" href="./static/images/logo4.ico">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
 
@@ -108,10 +108,11 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title" style="font-size: 2.55rem;">LAMPS💡: A Novel Robot Generalization Framework for Learning Adaptive Multi-Periodic Skills</h1>
+          <h1 class="title is-1 publication-title" style="font-size: 2.7rem;">Relooking Only Once<img src="./static/images/logo4.ico" alt="Logo" style="width:1em; height:1em; vertical-align:middle; margin: 0 0.2em;">: A General Multimodal Active Perception Framework for Vision-Based Robotic Manipulation</h1>
 
           <div class="is-size-5 publication-authors">
             <span class="author-block">
+              <a href="https://deyun.github.io/">Deyun Qin</a><sup>1</sup>,</span>
               <a href="https://aric.github.io/">Zezhi Liu</a><sup>1</sup>,</span>
               <a href="https://evallhq.github.io/">Hanqian Luo</a><sup>1,2</sup>,</span>
               <a href="https://ai.nankai.edu.cn/info/1034/4844.htm">Xiao Liang</a><sup>1</sup>,</span>
@@ -128,7 +129,7 @@
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="https://nkrobotlab.github.io/LAMPS/"
+                <a href="https://nkrobotlab.github.io/MVPNet/"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -137,7 +138,7 @@
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://nkrobotlab.github.io/LAMPS/"
+                <a href="https://nkrobotlab.github.io/MVPNet/"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -157,7 +158,7 @@
               </span>
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://nkrobotlab.github.io/LAMPS/"
+                <a href="https://nkrobotlab.github.io/MVPNet/"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -178,9 +179,9 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body" style="text-align: center;">
-      <img id="teaser" src="./static/images/top.png" alt="Teaser Image" style="width: 75%; display: block; margin: 0 auto;">
+      <img id="teaser" src="./static/images/fig_human_viewpoint_optimize.png" alt="Teaser Image" style="width: 65%; display: block; margin: 0 auto;">
       <h2 class="subtitle has-text-centered">
-        <span class="dnerf">The</span> executing of the multi-periodic movements skills.
+        <span class="dnerf">The</span> <strong>"Focus-then-Execute"</strong> active perception paradigm.
       </h2>
     </div>
   </div>
@@ -195,13 +196,19 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-Learning from Demonstrations (LfD) methods are applied to transfer human skills to robots from expert demonstrations, enabling them to perform complex tasks.
-However, existing methods often struggle to handle such long-horizon human skills as cleaning or wiping stains on the surface, which involve multiple periodic and transitional movement primitives. 
-To address this limitation, this paper first proposes a novel framework for segmenting, learning, and generalizing multi-periodic human skills, enabling robots to effectively learn different movement primitives and execute these skills in new scenarios.
-Specifically, The framework introduces an unsupervised learning method to segment long-horizon human demonstrations into periodic and discrete movement primitives. 
-Further, a novel type of discrete dynamical movement primitives, namely transitional movement primitives, is employed to enhance the fluidity of combining different periodic movement primitives in skills.
-To validate the effectiveness of the proposed approach, we conduct extensive experimental evaluations, including step-by-step validation of each procedure's methods in simulation and the implementation of the entire presented framework in the real world.
-The results confirm that the proposed framework accurately learns and generalizes multi-periodic human skills, providing a feasible solution for transferring complex multi-periodic demonstrations to robots in practical applications.
+Robots are increasingly deployed in a wide range of manipulation tasks. 
+Perception constitutes the initial and critical stage of the manipulation pipeline; 
+therefore, acquiring more informative observation viewpoints to provide high-quality perceptual inputs for downstream tasks is of paramount importance. 
+This problem falls within the scope of active perception. 
+Although prior studies have explored this direction, two major limitations remain. 
+First, most existing methods formulate viewpoint selection as an iterative optimization process, which typically requires multiple perception-action steps to approach an ideal viewpoint, thereby increasing time consumption and motion cost. 
+Second, existing active perception frameworks are often tightly coupled with specific task objectives and viewpoint evaluation functions, making them difficult to transfer and reuse across different tasks and consequently limiting their generality.
+This paper presents a general one-shot multimodal active perception framework that enables effective perception through a single viewpoint adjustment. 
+The framework comprises an automated data collection pipeline and a multimodal optimal viewpoint prediction network. 
+It is instantiated on robotic grasping tasks in viewpoint-constrained environments and evaluated through both simulation and real-world experiments. 
+Experimental results show that the proposed framework significantly improves grasp success rates. 
+In particular, real-world evaluations demonstrate a near doubling of grasp success rates, along with seamless sim-to-real transfer without additional fine-tuning. 
+These results validate the effectiveness and superiority of the proposed framework.
           </p>
         </div>
       </div>
@@ -215,40 +222,41 @@ The results confirm that the proposed framework accurately learns and generalize
   <div class="container is-max-desktop">
     <div class="content">
      <h2>Main Contribution</h2>
-    <p>We introduce <strong>LAMPS💡</strong>, a novel robot skill learning framework consisting of movement primitives (MPs) segmenting, merging and generalizing.
+    <p>We introduce a <strong>multimodal active perception framework </strong> that directly predicts the optimal observation viewpoint, enabling improved perception with only a single relook, and generalizes across different tasks.
        The main contributions of our work are summarized as follows:</p>
       </div>
     <!-- Explanation of the diagram -->
     <div class="content" style="margin-top: 20px;">
     <ul>
-        <li>The multi-periodic human skills are modeled for the first time by merging periodic MPs and discrete MPs, successfully providing detailed descriptions of such kinds of widely-used tasks and addressing a gap in the existing literature.</li>
-        <li>The proposed framework is constructed with the knowledge in unsupervised learning and LfD, which enables fluent generalization of MPs while preserving the dynamic features of demonstrations, enhancing both validity and efficiency.</li>
-        <li>The efficacy of the proposed framework is evaluated through both simulations and experiments, which validate the framework's efficacy in learning and generalizing multi-periodic skills, demonstrating robust performance and adaptability.</li>
+        <li>A data collection pipeline is established by customizing the viewpoint quality evaluation function according to task requirements to determine optimal viewpoints, and leveraging domain randomization for large-scale dataset construction.</li>
+        <li>A prediction network is developed. Utilizing the cross-attention mechanism, this network aligns and fuses multimodal features to predict the camera pose adjustment required.</li>
+        <li>The proposed framework is instantiated in robotic grasping under viewpoint-constrained environments, where data collection and network training are conducted, and its effectiveness and robustness are validated through extensive simulation and real-world experiments.</li>
       </ul>
-      <p> Here we show a brief overview of the proposed framework for <strong>L</strong>earning <strong>A</strong>daptive <strong>M</strong>ulti-Periodic <strong>S</strong>kills: <strong>LAMPS💡</strong>
+      <p> Here we show a brief overview of the proposed framework for robotic grasping in viewpoint-constrained environments: </p>
     <div style="text-align: center; margin-top: 20px;"> <!-- Center align the image container -->
-      <img src="./static/images/contribution1.png"
-           style="width: 95%; max-width: 1000px; height: auto; display: block; margin: 0 auto;" <!-- Make the image responsive and centered -->
+      <img src="./static/images/fig_overall_framework.png"
+           style="width: 90%; max-width: 1000px; height: auto; display: block; margin: 0 auto;" <!-- Make the image responsive and centered -->
     </div>
     </div>
   </div>
 </div>
 </section>
 
+<!-- 
 <section class="section">
   <div class="container is-max-desktop">
     <div class="content">
      <h2>Methodology and Evaluation</h2>
     </div>
 
-    <!-- Summary of the work -->
+
     <div class="content" style="margin-top: 20px;">
       <ol>
         <li>An trajectory segmentation process based on the unsupervised learning method OPTICS (Ordering Points To Identify the Clustering Structure) is proposed and used to effectively segment different MPs from long human demonstrations.</li>
       
-      <div style="text-align: center; margin-top: 20px; margin-bottom: 20px;"> <!-- Center align the image container -->
+      <div style="text-align: center; margin-top: 20px; margin-bottom: 20px;">
         <img src="./static/images/3d.png"
-            style="width: 90%; max-width: 1000px; height: auto; display: block; margin: 0 auto;" <!-- Make the image responsive and centered -->
+            style="width: 90%; max-width: 1000px; height: auto; display: block; margin: 0 auto;"
       </div>
         <li>The transitional MPs are introduced to combine with different periodic MPs in a fluent way.</li>
 
@@ -259,19 +267,18 @@ The results confirm that the proposed framework accurately learns and generalize
 
         <li>The proposed transitional MP method is evaluated to combine with periodic MPs in different phases, with different positions, velocities, and accelerations.</li>
 
-      <div style="text-align: center; margin-top: 20px;"> <!-- Center align the image container -->
+      <div style="text-align: center; margin-top: 20px;"> 
         <img src="./static/images/3c.png"
-            style="width: 90%; max-width: 1000px; height: auto; display: block; margin: 0 auto;" <!-- Make the image responsive and centered -->
+            style="width: 90%; max-width: 1000px; height: auto; display: block; margin: 0 auto;"
       </div>
       </ol>
     </div>
   </div>
-</section>
+</section> 
 
 
 <section class="section">
   <div class="container is-max-desktop">
-    <!-- Summary of the work -->
     <div class="content has-text-justified">
       <h2>Real-World Experiments</h2>
       <p>We executed and estimate one of the typical multi-periodic movement skills, wiping the whiteboard to evaluate the proposed framework LAMPS. </p>
@@ -295,9 +302,9 @@ The results confirm that the proposed framework accurately learns and generalize
         <p> Here we show a clear overview of the experimental procedure using the propose framework. Please visit <strong><a href="./static/videos/video.mp4" target="_blank">here</a></strong> to see more details about our work experiment part.</p>
       </div>
 
-      <div style="text-align: center; margin-top: 20px;"> <!-- Center align the image container -->
+      <div style="text-align: center; margin-top: 20px;">
         <img src="./static/images/exp.png"
-             style="width: 90%; max-width: 1000px; height: auto; display: block; margin: 0 auto;" <!-- Make the image responsive and centered -->
+             style="width: 90%; max-width: 1000px; height: auto; display: block; margin: 0 auto;"
       </div>
    </div>
 </section>
@@ -305,11 +312,9 @@ The results confirm that the proposed framework accurately learns and generalize
 
 <section class="section">
   <div class="container is-max-desktop">
-    <!-- Summary of the work -->
     <div class="content">
       <h2>Example Results Analysis</h2>
       <p>Several periodic MPs and transitional MPs are contained in multi-periodic skills in human daily life. The following results show the fluent performance</p>
-	<!-- Large plot display -->
    
   <div style="display: flex; justify-content: center; margin-top: 20px; margin-bottom: 20px; background-color: #f0f0f0; padding: 15px; border-radius: 8px;">
     <div style="text-align: center; margin: 0 15px;">
@@ -353,6 +358,7 @@ The results confirm that the proposed framework accurately learns and generalize
    </div>
   </div>
 </section>
+-->
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
