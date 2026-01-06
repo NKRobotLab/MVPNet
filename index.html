@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="LAMPS">
+  <meta name="keywords" content="Learning from Demonstration, Task and Motion Planning, Manipulation Planning">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LAMPS</title>
+
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link rel="icon" type="image/x-icon" href="./static/images/logo1.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+  <script src="static/js/bulma-carousel.js"></script>
+  <style>
+    .results-carousel {
+        width: 80%;       /* Set to your desired width */
+        margin: 0 auto;   /* Center the carousel horizontally */
+    }
+
+  </style>
+<style>
+  .slider-container {
+    position: relative;
+    width: 100%;
+    max-width:1000px;
+    margin: auto;
+    overflow: hidden;
+  }
+  
+  .slider-wrapper {
+    display: flex;
+    transition: transform 0.3s ease-out;
+  }
+  
+  .slider-item {
+  width: 100%; /* 让每个 .slider-item 填满 .slider-wrapper */
+  height: 100%; /* 让每个 .slider-item 填满 .slider-wrapper */
+  display: flex; /* 使用 Flexbox 布局来居中内容 */
+  justify-content: center; /* 水平居中内容 */
+  align-items: center; /* 垂直居中内容 */
+  flex-shrink: 0; /* 防止 flex 子元素缩小 */
+}
+
+/* 如果 .slider-item 包含图片 */
+.slider-item img {
+  width: 100%; /* 宽度填满 .slider-item */
+  height: auto; /* 高度自适应以保持图片比例 */
+  object-fit: cover; /* 覆盖整个区域，可能会剪裁某些部分 */
+}
+  
+  button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 10px;
+    cursor: pointer;
+    z-index: 2;
+  }
+  
+  .left-btn {
+    left: 10px;
+  }
+  
+  .right-btn {
+    right: 10px;
+  }
+  
+  </style>
+</head>
+<body>
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title" style="font-size: 2.55rem;">LAMPS💡: A Novel Robot Generalization Framework for Learning Adaptive Multi-Periodic Skills</h1>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://aric.github.io/">Zezhi Liu</a><sup>1</sup>,</span>
+              <a href="https://evallhq.github.io/">Hanqian Luo</a><sup>1,2</sup>,</span>
+              <a href="https://ai.nankai.edu.cn/info/1034/4844.htm">Xiao Liang</a><sup>1</sup>,</span>
+              <a href="https://scholar.google.com/citations?user=SNyDfVoAAAAJ&hl=zh-CN&oi=ao">Yongchun Fang</a><sup>1</sup></span>
+            </span>
+          </div>
+      
+      <div class="is-size-5 publication-authors">
+        <span class="author-block"><sup>1</sup>Nanakai University, </span>
+        <span class="author-block"><sup>2</sup>The Hong Kong Polytechnic University</span>
+      </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://nkrobotlab.github.io/LAMPS/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://nkrobotlab.github.io/LAMPS/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="./static/videos/video.mp4"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://nkrobotlab.github.io/LAMPS/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (Comming Soon)</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body" style="text-align: center;">
+      <img id="teaser" src="./static/images/top.png" alt="Teaser Image" style="width: 75%; display: block; margin: 0 auto;">
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">The</span> executing of the multi-periodic movements skills.
+      </h2>
+    </div>
+  </div>
+</section>
+  
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+Learning from Demonstrations (LfD) methods are applied to transfer human skills to robots from expert demonstrations, enabling them to perform complex tasks.
+However, existing methods often struggle to handle such long-horizon human skills as cleaning or wiping stains on the surface, which involve multiple periodic and transitional movement primitives. 
+To address this limitation, this paper first proposes a novel framework for segmenting, learning, and generalizing multi-periodic human skills, enabling robots to effectively learn different movement primitives and execute these skills in new scenarios.
+Specifically, The framework introduces an unsupervised learning method to segment long-horizon human demonstrations into periodic and discrete movement primitives. 
+Further, a novel type of discrete dynamical movement primitives, namely transitional movement primitives, is employed to enhance the fluidity of combining different periodic movement primitives in skills.
+To validate the effectiveness of the proposed approach, we conduct extensive experimental evaluations, including step-by-step validation of each procedure's methods in simulation and the implementation of the entire presented framework in the real world.
+The results confirm that the proposed framework accurately learns and generalizes multi-periodic human skills, providing a feasible solution for transferring complex multi-periodic demonstrations to robots in practical applications.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+  
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="content">
+     <h2>Main Contribution</h2>
+    <p>We introduce <strong>LAMPS💡</strong>, a novel robot skill learning framework consisting of movement primitives (MPs) segmenting, merging and generalizing.
+       The main contributions of our work are summarized as follows:</p>
+      </div>
+    <!-- Explanation of the diagram -->
+    <div class="content" style="margin-top: 20px;">
+    <ul>
+        <li>The multi-periodic human skills are modeled for the first time by merging periodic MPs and discrete MPs, successfully providing detailed descriptions of such kinds of widely-used tasks and addressing a gap in the existing literature.</li>
+        <li>The proposed framework is constructed with the knowledge in unsupervised learning and LfD, which enables fluent generalization of MPs while preserving the dynamic features of demonstrations, enhancing both validity and efficiency.</li>
+        <li>The efficacy of the proposed framework is evaluated through both simulations and experiments, which validate the framework's efficacy in learning and generalizing multi-periodic skills, demonstrating robust performance and adaptability.</li>
+      </ul>
+      <p> Here we show a brief overview of the proposed framework for <strong>L</strong>earning <strong>A</strong>daptive <strong>M</strong>ulti-Periodic <strong>S</strong>kills: <strong>LAMPS💡</strong>
+    <div style="text-align: center; margin-top: 20px;"> <!-- Center align the image container -->
+      <img src="./static/images/contribution1.png"
+           style="width: 95%; max-width: 1000px; height: auto; display: block; margin: 0 auto;" <!-- Make the image responsive and centered -->
+    </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="content">
+     <h2>Methodology and Evaluation</h2>
+    </div>
+
+    <!-- Summary of the work -->
+    <div class="content" style="margin-top: 20px;">
+      <ol>
+        <li>An trajectory segmentation process based on the unsupervised learning method OPTICS (Ordering Points To Identify the Clustering Structure) is proposed and used to effectively segment different MPs from long human demonstrations.</li>
+      
+      <div style="text-align: center; margin-top: 20px; margin-bottom: 20px;"> <!-- Center align the image container -->
+        <img src="./static/images/3d.png"
+            style="width: 90%; max-width: 1000px; height: auto; display: block; margin: 0 auto;" <!-- Make the image responsive and centered -->
+      </div>
+        <li>The transitional MPs are introduced to combine with different periodic MPs in a fluent way.</li>
+
+      <div style="display: flex; justify-content: center; margin-top: 20px; margin-bottom: 20px;">
+        <img src="./static/images/transitional.png" style="height: 280px; width: auto; max-width: 100%; object-fit: cover; margin: 0 0;" />
+        <img src="./static/images/compare.png" style="height: 280px; width: auto; max-width: 100%; object-fit: cover; margin: 0 0;" />
+      </div>
+
+        <li>The proposed transitional MP method is evaluated to combine with periodic MPs in different phases, with different positions, velocities, and accelerations.</li>
+
+      <div style="text-align: center; margin-top: 20px;"> <!-- Center align the image container -->
+        <img src="./static/images/3c.png"
+            style="width: 90%; max-width: 1000px; height: auto; display: block; margin: 0 auto;" <!-- Make the image responsive and centered -->
+      </div>
+      </ol>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Summary of the work -->
+    <div class="content has-text-justified">
+      <h2>Real-World Experiments</h2>
+      <p>We executed and estimate one of the typical multi-periodic movement skills, wiping the whiteboard to evaluate the proposed framework LAMPS. </p>
+      
+      <div style="display: flex; justify-content: center; margin-top: 20px; margin-bottom: 0; background-color: #f0f0f0; padding: 15px; border-radius: 8px;">
+        <div style="text-align: center; margin: 0 5px;">
+          <img src="./static/images/whiteboard.jpg" style="height: 220px; width: auto; max-width: 100%; object-fit: cover;" />
+          <p>Human Skill of Wiping Whiteboard</p>
+        </div>
+        <div style="text-align: center; margin: 0 5px;">
+          <img src="./static/images/scene.jpg" style="height: 220px; width: auto; max-width: 100%; object-fit: cover;" />
+          <p>Experimental Scene diagram</p>
+        </div>
+        <div style="text-align: center; margin: 0 5px;">
+          <img src="./static/images/res.png" style="height: 220px; width: auto; max-width: 100%; object-fit: cover;" />
+          <p>Experimental Result Diagram</p>
+        </div>
+      </div>
+
+      <div class="content has-text-justified" style="margin-top: 20px">
+        <p> Here we show a clear overview of the experimental procedure using the propose framework. Please visit <strong><a href="./static/videos/video.mp4" target="_blank">here</a></strong> to see more details about our work experiment part.</p>
+      </div>
+
+      <div style="text-align: center; margin-top: 20px;"> <!-- Center align the image container -->
+        <img src="./static/images/exp.png"
+             style="width: 90%; max-width: 1000px; height: auto; display: block; margin: 0 auto;" <!-- Make the image responsive and centered -->
+      </div>
+   </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Summary of the work -->
+    <div class="content">
+      <h2>Example Results Analysis</h2>
+      <p>Several periodic MPs and transitional MPs are contained in multi-periodic skills in human daily life. The following results show the fluent performance</p>
+	<!-- Large plot display -->
+   
+  <div style="display: flex; justify-content: center; margin-top: 20px; margin-bottom: 20px; background-color: #f0f0f0; padding: 15px; border-radius: 8px;">
+    <div style="text-align: center; margin: 0 15px;">
+      <img src="./static/videos/p.gif" style="height: 300px; width: auto; max-width: 100%; object-fit: cover;" />
+      <p>Execution of First Periodic MP</p>
+    </div>
+    <div style="text-align: center; margin: 0 15px;">
+      <img src="./static/videos/t.gif" style="height: 300px; width: auto; max-width: 100%; object-fit: cover;" />
+      <p>Execution of First Transitional MP</p>
+    </div>
+  </div>
+  </div>
+
+  <p>And also, Impedance control can help to improve the performance of cleaning: </p>
+  
+
+<div class="columns is-centered" style="margin-top: 10px;">
+<div class="column">
+  <div class="content">
+    <h4 class="title is-5" style="text-align: center;">With Impedance Control</h4>
+    <video id="with" autoplay controls muted loop playsinline height="100%">
+      <source src="./static/videos/with.mp4"
+              type="video/mp4">
+    </video>
+  </div>
+</div>
+
+<div class="column">
+  <h4 class="title is-5" style="text-align: center;">Without Impedance Control</h4>
+  <div class="columns is-centered">
+    <div class="column content">
+      <video id="without" autoplay controls muted loop playsinline height="100%">
+        <source src="./static/videos/without.mp4"
+                type="video/mp4">
+      </video>
+    </div>
+    </div>
+    </div>
+    </div>
+
+   </div>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX (Coming soon)</h2>
+    <pre><code>......</code></pre>
+<!--     <pre><code>@article{Darioush2024ControlBench,
+  author    = {Darioush, Kevian and Usman, Syed and Xingang, Guo and Aaron, Havens and Geir, Dullerud and Peter, Seiler and Lianhui, Qin and Bin, Hu},
+  title     = {Capabilities of Large Language Models in Control Engineering: A Benchmark Study on GPT-4, Claude 3 Opus, and Gemini 1.0 Ultra},
+  journal   = {arXiv preprint arXiv:2404.03647},
+  year      = {2024},
+}</code></pre> -->
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a 
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This website was built using the
+						<a href="https://nerfies.github.io/">Nerfies website</a> and the
+						<a href="https://github.com/nerfies/nerfies.github.io">source code</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- <script>
+  const sliderWrapper = document.querySelector('.slider-wrapper');
+  const sliderItems = document.querySelectorAll('.slider-item');
+  let currentIndex = 0;
+
+  document.querySelector('.left-btn').addEventListener('click', () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateSliderPosition();
+    }
+  });
+
+  document.querySelector('.right-btn').addEventListener('click', () => {
+    if (currentIndex < sliderItems.length - 1) {
+      currentIndex++;
+      updateSliderPosition();
+    }
+  });
+
+  function updateSliderPosition() {
+    const newTransformValue = -currentIndex * 100; // Assuming each slide is 100% of the container width
+    sliderWrapper.style.transform = `translateX(${newTransformValue}%)`;
+  }
+</script> -->
+
+
+<script>
+  const sliderWrapper = document.querySelector('.slider-wrapper');
+  const sliderItems = document.querySelectorAll('.slider-item');
+  let currentIndex = 0;
+
+  document.querySelector('.left-btn').addEventListener('click', () => {
+    // Modify this to go to the last image if currently at the first image
+    if (currentIndex > 0) {
+      currentIndex--;
+    } else {
+      currentIndex = sliderItems.length - 1; // Go to the last image
+    }
+    updateSliderPosition();
+  });
+
+  document.querySelector('.right-btn').addEventListener('click', () => {
+    // Reset currentIndex to 0 if on the last image, otherwise increment
+    if (currentIndex < sliderItems.length - 1) {
+      currentIndex++;
+    } else {
+      currentIndex = 0; // Reset to the first image
+    }
+    updateSliderPosition();
+  });
+
+  function updateSliderPosition() {
+    const newTransformValue = -currentIndex * 100; // Assuming each slide is 100% of the container width
+    sliderWrapper.style.transform = `translateX(${newTransformValue}%)`;
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+  const videos = [document.getElementById('with'), document.getElementById('without')];
+  
+  videos.forEach(video => {
+    video.addEventListener('volumechange', function () {
+      if (!video.muted) {
+        video.muted = true;
+      }
+    });
+  });
+});
+
+</script>
+
+
+</body>
+</html>
