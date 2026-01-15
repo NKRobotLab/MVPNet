@@ -181,7 +181,7 @@
     <div class="hero-body" style="text-align: center;">
       <img id="teaser" src="./static/images/fig_human_viewpoint_optimize.png" alt="Teaser Image" style="width: 65%; display: block; margin: 0 auto;">
       <h2 class="subtitle has-text-centered">
-        <span class="dnerf">The</span> <strong>"Focus-then-Execute"</strong> active perception paradigm.
+        The <strong>"Focus-then-Execute"</strong> active perception paradigm.
       </h2>
     </div>
   </div>
@@ -193,22 +193,17 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
+        <h2 class="title is-2" style="text-align: center;">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-Robots are increasingly deployed in a wide range of manipulation tasks. 
-Perception constitutes the initial and critical stage of the manipulation pipeline; 
-therefore, acquiring more informative observation viewpoints to provide high-quality perceptual inputs for downstream tasks is of paramount importance. 
-This problem falls within the scope of active perception. 
-Although prior studies have explored this direction, two major limitations remain. 
-First, most existing methods formulate viewpoint selection as an iterative optimization process, which typically requires multiple perception-action steps to approach an ideal viewpoint, thereby increasing time consumption and motion cost. 
-Second, existing active perception frameworks are often tightly coupled with specific task objectives and viewpoint evaluation functions, making them difficult to transfer and reuse across different tasks and consequently limiting their generality.
-This paper presents a general one-shot multimodal active perception framework that enables effective perception through a single viewpoint adjustment. 
-The framework comprises an automated data collection pipeline and a multimodal optimal viewpoint prediction network. 
-It is instantiated on robotic grasping tasks in viewpoint-constrained environments and evaluated through both simulation and real-world experiments. 
-Experimental results show that the proposed framework significantly improves grasp success rates. 
-In particular, real-world evaluations demonstrate a near doubling of grasp success rates, along with seamless sim-to-real transfer without additional fine-tuning. 
-These results validate the effectiveness and superiority of the proposed framework.
+            Active perception in vision-based robotic manipulation aims to move the camera toward more informative observation viewpoints, thereby providing high-quality perceptual inputs for downstream tasks.
+            Most existing active perception methods rely on iterative optimization, leading to high time and motion costs, and are tightly coupled with task-specific objectives, which limits their transferability.
+            In this paper, we propose a general one-shot multimodal active perception framework for robotic manipulation. The framework enables direct inference of optimal viewpoints and comprises a data collection pipeline and an optimal viewpoint prediction network.
+            Specifically, the framework decouples viewpoint quality evaluation from the overall architecture, supporting heterogeneous task requirements. Optimal viewpoints are defined through systematic sampling and evaluation of candidate viewpoints, after which large-scale training datasets are constructed via domain randomization.
+            Moreover, a multimodal optimal viewpoint prediction network is developed, leveraging cross-attention to align and fuse multimodal features and directly predict camera pose adjustments.
+            The proposed framework is instantiated in robotic grasping under viewpoint-constrained environments. 
+            Experimental results demonstrate that active perception guided by the framework significantly improves grasp success rates.
+            Notably, real-world evaluations achieve nearly double the grasp success rate and enable seamless sim-to-real transfer without additional fine-tuning, demonstrating the effectiveness of the proposed framework.
           </p>
         </div>
       </div>
@@ -221,26 +216,107 @@ These results validate the effectiveness and superiority of the proposed framewo
 <section class="section">
   <div class="container is-max-desktop">
     <div class="content">
-     <h2>Main Contribution</h2>
-    <p>We introduce a <strong>multimodal active perception framework </strong> that directly predicts the optimal observation viewpoint, enabling improved perception with only a single relook, and generalizes across different tasks.
+     <h2 class="title is-2" style="text-align: center;">Main Contribution</h2>
+      <p>We propose <strong>a data-driven multimodal active perception framework </strong> that directly predicts the optimal observation viewpoint, enabling improved perception with <strong>only a single relook</strong>, and generalizes across different tasks.
        The main contributions of our work are summarized as follows:</p>
-      </div>
+    </div>
     <!-- Explanation of the diagram -->
     <div class="content" style="margin-top: 20px;">
     <ul>
-        <li>A data collection pipeline is established by customizing the viewpoint quality evaluation function according to task requirements to determine optimal viewpoints, and leveraging domain randomization for large-scale dataset construction.</li>
-        <li>A prediction network is developed. Utilizing the cross-attention mechanism, this network aligns and fuses multimodal features to predict the camera pose adjustment required.</li>
+        <li>A general one-shot multimodal active perception framework is proposed, comprising a data collection pipeline and an optimal viewpoint prediction network. This framework enables the unified modeling of diverse task requirements, thereby extending its applicability to a broader range of task scenarios.</li>
+        <li>An optimal observation viewpoint data collection pipeline is established, in which optimal viewpoints are defined through task-specific viewpoint quality evaluation functions, and large-scale datasets are constructed via domain randomization.</li>
+        <li>An optimal observation viewpoint prediction network is developed. Utilizing the cross-attention mechanism, this network aligns and fuses multimodal features to predict the required camera pose adjustment.</li>
         <li>The proposed framework is instantiated in robotic grasping under viewpoint-constrained environments, where data collection and network training are conducted, and its effectiveness and robustness are validated through extensive simulation and real-world experiments.</li>
       </ul>
-      <p> Here we show a brief overview of the proposed framework for robotic grasping in viewpoint-constrained environments: </p>
-    <div style="text-align: center; margin-top: 20px;"> <!-- Center align the image container -->
-      <img src="./static/images/fig_overall_framework.png"
-           style="width: 90%; max-width: 1000px; height: auto; display: block; margin: 0 auto;" <!-- Make the image responsive and centered -->
     </div>
+    </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="content">
+        <h2 class="title is-2" style="text-align: center;">Framework Overview</h2>
+        <div style="text-align: center; margin-top: 20px;"> <!-- Center align the image container -->
+          <img src="./static/images/fig_overall_framework.png"
+              style="width: 100%; max-width: 1000px; height: auto; display: block; margin: 0 auto;" <!-- Make the image responsive and centered -->
+        </div>
+        <div style="margin-top: 5px;"></div>
+        <p>Overall framework of the proposed method, illustrated with robotic grasping in viewpoint-constrained environments:
+          (a) sampling and evaluating candidate viewpoints to obtain the optimal viewpoint for each object, followed by dataset construction via domain randomization;
+          (b) training the MVPNet based on the constructed dataset; and
+          (c) deploying the trained network and conducting comparative evaluations.
+        </p>
     </div>
   </div>
-</div>
 </section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="content">
+        <h2 class="title is-2" style="text-align: center;">Network Architecture</h2>
+        <div style="text-align: center; margin-top: 20px;"> <!-- Center align the image container -->
+          <img src="./static/images/fig_network.png"
+              style="width: 100%; max-width: 1000px; height: auto; display: block; margin: 0 auto;" <!-- Make the image responsive and centered -->
+        </div>
+        <div style="margin-top: 5px;"></div>
+        <p>First, the current observation is obtained and preprocessed together with the natural language description of the target object. Subsequently, modality-specific encoders are employed to extract features, which are then aligned and fused using a Transformer. Finally, an MLP maps the fused representation to the camera pose adjustments.
+        </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+          <h2  class="title is-2" style="text-align: center; padding-bottom: 10px;">Synthetic Dataset Construction</h2>
+          <div class="row">
+            <div class="col">
+              <video autoplay muted loop playsinline controls src="./static/videos/video_define_optimal_observation_viewpoint.mp4" width="100%" style="border-radius:5px; "></video>
+              <h3 class="title is-3" style="text-align: center; margin-bottom: 10px; font-size: x-large;"> Define Optimal Observation Viewpoint </h3>
+            </div>
+            <div class="col">
+              <video autoplay muted loop playsinline controls src="./static/videos/video_data_collection.mp4" width="100%" style="border-radius:5px; "></video>
+              <h3 class="title is-3" style="text-align: center; margin-bottom: 10px; font-size: x-large;"> Data Collection </h3>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+          <h2  class="title is-2" style="text-align: center; padding-bottom: 10px;">Simulated Experiments</h2>
+          <div class="row">
+            <div class="col">
+              <video autoplay muted loop playsinline controls src="./static/videos/video_simulated_experiments.mp4" width="100%" style="border-radius:5px; "></video>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+          <h2  class="title is-2" style="text-align: center; padding-bottom: 10px;">Real Robot Experiments</h2>
+          <div class="row">
+            <div class="col">
+              <video autoplay muted loop playsinline controls src="./static/videos/video_real_robot_experiments.mp4" width="100%" style="border-radius:5px; "></video>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  
+
 
 <!-- 
 <section class="section">
